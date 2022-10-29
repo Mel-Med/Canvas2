@@ -1,26 +1,29 @@
-var formulario = document.querySelector("#form")
-
-formulario.onsubmit = function(e) {
-
-  e.prevent();
+let formulario = document.querySelector("form")
   
-  var n = formulario.elements[0]
-  var e = formulario.elements[1]
-  var na = formulario.elements[2]
+formulario.onsubmit = function(e) {
+  // Se acompleta con Default
+  e.preventDefault();
+  
+  // Se cambian las variables
+  let name = formulario.elements[0]
+  let age = formulario.elements[1]
+  let nationality = formulario.elements[2]
 
-  var nombre = n.value
-  var edad = e.value
+ // Se agregan punto y coma
+  let nombre = name.value;
+  let edad = age.value;
 
-  var i = na.selectedIndex
-  var nacionalidad = na.options[i].value
-  console.log(nombre, edad)
-  console.log(nacionalidad)
+  let i = nationality.selectedIndex;
+  let nacionalidad = nationality.options[i].value;
+  // Se agregan comentarios al console.log
+  console.log("nombre"+ nombre, "edad" + edad);
+  console.log("nacionalidad" + nacionalidad);
 
   if (nombre.length === 0) {
-    n.classList.add("error")
+    name.classList.add("error")
   }
   if (edad < 18 || edad > 120) {
-    e.classList.add("error")
+    age.classList.add("error")
   }
 
 if (nombre.length > 0 
@@ -30,10 +33,10 @@ if (nombre.length > 0
   }
 }
 
-var botonBorrar = document.createElement("button")
+let botonBorrar = document.createElement("button")
 botonBorrar.textContent = "Eliminar invitado"
 botonBorrar.id = "boton-borrar"
-var corteLinea = document.createElement("br")
+let corteLinea = document.createElement("br")
 document.body.appendChild(corteLinea)
 document.body.appendChild(botonBorrar);
 
@@ -52,15 +55,17 @@ function agregarInvitado(nombre, edad, nacionalidad) {
     nacionalidad = "Peruana"
   }
 
-var lista = document.getElementById("lista-de-invitados")
+let lista = document.getElementById("lista-de-invitados")
 
-var elementoLista = document.createElement("div")
-elementoLista.classList.added("elemento-lista")
-lista.appendChild(elementoLista)
+// Se cambia added por add
+let elementoLista = document.createElement("div")
+elementoLista.classList.add("elemento-lista")
+//Se agrega punto y coma
+lista.appendChild(elementoLista);
 
-var spanNombre = document.createElement("span")
-var inputNombre = document.createElement("input")
-var espacio = document.createElement("br")
+let spanNombre = document.createElement("span")
+let inputNombre = document.createElement("input")
+let espacio = document.createElement("br")
 spanNombre.textContent = "Nombre: "
 inputNombre.value = nombre 
 elementoLista.appendChild(spanNombre)
@@ -95,3 +100,5 @@ elementoLista.appendChild(botonBorrar);
 botonBorrar.parentNode.remove()
   }
 }
+
+// Se añade punto al body de css 
